@@ -11,33 +11,32 @@ import edu.monash.fit2099.engine.positions.GameMap;
  *
  * @see Action
  */
-public class ConsumeFlaskAction extends Action {
-
+public class ConsumeFlaskAction extends Action
+{
     private final Consumable consumable;
 
-    /**
-     * Constructor.
-     *
-     * @param consumable the consumable item to drink from
-     */
-    public ConsumeFlaskAction(Consumable consumable) {
+    public ConsumeFlaskAction(Consumable consumable)
+    {
         this.consumable = consumable;
     }
 
     /**
-     * Delegates the consumption effect to the consumable item.
+     * When executed, it will check for the actor's inventory whether they are carrying the flask.
+     * If so, it will decrease the flask content and heal the actor.
      *
-     * @param actor the actor consuming the item
-     * @param map   the map the actor is on
-     * @return the description of the result
+     * @param actor The actor consuming the flask.
+     * @param map The map the actor is on.
+     * @return the description of the result of the action
      */
     @Override
-    public String execute(Actor actor, GameMap map) {
+    public String execute(Actor actor, GameMap map)
+    {
         return consumable.consumedBy(actor);
     }
 
     @Override
-    public String menuDescription(Actor actor) {
-        return actor + " drinks from Flask";
+    public String menuDescription(Actor actor)
+    {
+        return actor + " drinks from flask.";
     }
 }
