@@ -1,6 +1,7 @@
 package game;
 
 import edu.monash.fit2099.engine.items.Item;
+import edu.monash.fit2099.engine.statistics.BaseStatistic;
 
 /**
  * A class representing a small rectangular piece of plastic that holds entirely
@@ -12,7 +13,9 @@ import edu.monash.fit2099.engine.items.Item;
  * @author Adrian Kristanto
  */
 public class AccessCard extends Item {
-    public AccessCard() {
+    public AccessCard()
+    {
         super("Access Card", '▤');
+        this.addNewStatistic(ItemStatistics.WEIGHT, new BaseStatistic(1));
     }
 }

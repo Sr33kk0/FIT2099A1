@@ -11,11 +11,11 @@ import edu.monash.fit2099.engine.positions.GameMap;
  *
  * @see Action
  */
-public class ConsumeFlaskAction extends Action
+public class ConsumeAction extends Action
 {
     private final Consumable consumable;
 
-    public ConsumeFlaskAction(Consumable consumable)
+    public ConsumeAction(Consumable consumable)
     {
         this.consumable = consumable;
     }

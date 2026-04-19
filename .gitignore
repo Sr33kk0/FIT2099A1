@@ -3,3 +3,5 @@
 out
 .DS_Store
 docs/javadoc/
+docs/design/
+docs/superpowers/

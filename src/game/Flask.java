@@ -32,7 +32,7 @@ public class Flask extends Item implements Consumable
         ActionList actions = new ActionList();
         if (totalUsable > 0)
         {
-            actions.add(new ConsumeFlaskAction(this));
+            actions.add(new ConsumeAction(this));
         }
         return actions;
     }

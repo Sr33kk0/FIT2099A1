@@ -37,7 +37,7 @@ public class ContractedWorker extends  Actor {
      * @see Door
      * @see UnlockDoorAction
      * @see Flask
-     * @see ConsumeFlaskAction
+     * @see ConsumeAction
      * @param actions collection of possible Actions for this Actor
      * @param lastAction The Action this Actor took last turn. Can do
      * interesting things in conjunction with Action.getNextAction()
