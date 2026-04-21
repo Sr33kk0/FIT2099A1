@@ -17,5 +17,6 @@ public class AccessCard extends Item {
     {
         super("Access Card", '▤');
         this.addNewStatistic(ItemStatistics.WEIGHT, new BaseStatistic(1));
+        this.enableAbility(WorkerAbility.ACCESS_CARD);
     }
 }

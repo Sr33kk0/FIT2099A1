@@ -13,7 +13,7 @@ import edu.monash.fit2099.engine.statistics.BaseStatistic;
  */
 public class Flask extends Item implements Consumable
 {
-    int totalUsable = 5;
+    private int totalUsable = 5;
     public Flask()
     {
         super("Flask", 'u');
@@ -24,7 +24,7 @@ public class Flask extends Item implements Consumable
     {
         totalUsable--;
         actor.heal(1);
-        return actor + " drinks from the Flask. 1hp Restored.";
+        return actor + " drinks from the Flask. 1 HP Restored.";
     }
 
     public ActionList allowableActions(Actor actor, GameMap map)
@@ -35,5 +35,10 @@ public class Flask extends Item implements Consumable
             actions.add(new ConsumeAction(this));
         }
         return actions;
+    }
+
+    public String menuDescription(Actor actor)
+    {
+        return actor + " drinks from the Flash (" +this.totalUsable + " uses left)";
     }
 }

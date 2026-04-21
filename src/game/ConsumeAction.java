@@ -34,9 +34,14 @@ public class ConsumeAction extends Action
         return consumable.consumedBy(actor);
     }
 
+    /**
+     * Describe what action will be performed if this Action is chosen in the menu.
+     *
+     * @param actor The actor performing the action.
+     * @return the action description to be displayed on the menu
+     */
     @Override
-    public String menuDescription(Actor actor)
-    {
-        return actor + " drinks from flask.";
+    public String menuDescription(Actor actor) {
+        return consumable.menuDescription(actor);
     }
 }

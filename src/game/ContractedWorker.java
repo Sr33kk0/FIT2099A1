@@ -56,13 +56,7 @@ public class ContractedWorker extends  Actor {
             actions.add(new PickUpAction(item));
         }
 
-        boolean isAccessCardAvailable = false;
-        for (Item item : this.getInventory().getItems()) {
-            if (item instanceof AccessCard) {
-                isAccessCardAvailable = true;
-                break;
-            }
-        }
+        boolean isAccessCardAvailable = this.hasAbility(WorkerAbility.ACCESS_CARD);
 
         if (isAccessCardAvailable) {
             Location location = map.locationOf(this);

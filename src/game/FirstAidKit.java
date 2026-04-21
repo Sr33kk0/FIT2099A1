@@ -36,6 +36,11 @@ public class FirstAidKit extends Item implements Consumable
         return actor + " uses the First Aid Kit. Max HP is increased by 1 and health fully restored.";
     }
 
+    public String menuDescription(Actor actor)
+    {
+        return actor + " uses the First Aid Kit";
+    }
+
     /**
      * Inform a carried Item of the passage of time.
      *

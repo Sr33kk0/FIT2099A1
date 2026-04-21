@@ -59,6 +59,7 @@ public class EclipseNebula extends World {
         moon99DeprecatedMap.at(7, 2).addItem(new AccessCard());
         moon99DeprecatedMap.at(7, 3).addItem(new FirstAidKit());
         moon99DeprecatedMap.at(7, 4).addItem(new SterilisationBox());
+        moon99DeprecatedMap.at(11, 2).addItem(new Apple());
 
         Inventory inventory1 = new WeightLimitedInventory(50);
         inventory1.add(new Flask());

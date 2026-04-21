@@ -2,5 +2,6 @@ package game;
 
 public enum WorkerAbility
 {
-    STERILISE
+    STERILISE,
+    ACCESS_CARD
 }
