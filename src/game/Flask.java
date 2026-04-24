@@ -41,4 +41,9 @@ public class Flask extends Item implements Consumable
     {
         return actor + " drinks from the Flash (" +this.totalUsable + " uses left)";
     }
+
+    public boolean isFullyConsumed()
+    {
+        return false;
+    }
 }

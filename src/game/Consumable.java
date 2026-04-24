@@ -6,4 +6,5 @@ public interface Consumable
 {
     String consumedBy(Actor actor);
     String menuDescription(Actor actor);
+    boolean isFullyConsumed();
 }

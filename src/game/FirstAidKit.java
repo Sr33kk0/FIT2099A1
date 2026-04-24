@@ -55,4 +55,9 @@ public class FirstAidKit extends Item implements Consumable
             cooldownTurns--;
         }
     }
+
+    public boolean isFullyConsumed()
+    {
+        return false;
+    }
 }

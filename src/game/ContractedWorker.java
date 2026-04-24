@@ -22,6 +22,13 @@ import edu.monash.fit2099.engine.positions.Location;
 public class ContractedWorker extends  Actor {
     public ContractedWorker(String name, char displayChar, int hitPoints, Inventory inventory) {
         super(name, displayChar, hitPoints, inventory);
+        this.enableAbility(EntityType.WORKER);
+    }
+
+    public ContractedWorker(String name, char displayChar, int hitPoints) {
+        super(name, displayChar, hitPoints, new WeightLimitedInventory(50));
+        this.getInventory().add(new Flask());
+        this.enableAbility(EntityType.WORKER);
     }
 
     /**

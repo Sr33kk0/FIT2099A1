@@ -42,4 +42,9 @@ public class Apple extends Item implements Consumable
     {
         return actor + " consumes Apple";
     }
+
+    public boolean isFullyConsumed()
+    {
+        return true;
+    }
 }

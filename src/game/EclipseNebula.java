@@ -61,14 +61,12 @@ public class EclipseNebula extends World {
         moon99DeprecatedMap.at(7, 4).addItem(new SterilisationBox());
         moon99DeprecatedMap.at(11, 2).addItem(new Apple());
 
-        Inventory inventory1 = new WeightLimitedInventory(50);
-        inventory1.add(new Flask());
         // BEHOLD, LOCAL MULTIPLAYER!!!
-        ContractedWorker contractedWorker1 = new ContractedWorker("#1 Bob", 'ඞ', 10, inventory1);
-        ContractedWorker contractedWorker2 = new ContractedWorker("#2 Tom", 'ඞ', 10, inventory1);
-        ContractedWorker contractedWorker3 = new ContractedWorker("#3 Sarah", 'ඞ', 10, inventory1);
-        ContractedWorker contractedWorker4 = new ContractedWorker("#4 Julie", 'ඞ', 10, inventory1);
-        ContractedWorker contractedWorker5 = new ContractedWorker("#5 Rick", 'ඞ', 10, inventory1);
+        ContractedWorker contractedWorker1 = new ContractedWorker("#1 Bob", 'ඞ', 10);
+        ContractedWorker contractedWorker2 = new ContractedWorker("#2 Tom", 'ඞ', 10);
+        ContractedWorker contractedWorker3 = new ContractedWorker("#3 Sarah", 'ඞ', 10);
+        ContractedWorker contractedWorker4 = new ContractedWorker("#4 Julie", 'ඞ', 10);
+        ContractedWorker contractedWorker5 = new ContractedWorker("#5 Rick", 'ඞ', 10);
         this.addPlayer(contractedWorker1, moon99DeprecatedMap.at(6, 2));
         this.addPlayer(contractedWorker2, moon99DeprecatedMap.at(7, 2));
         this.addPlayer(contractedWorker3, moon99DeprecatedMap.at(8, 2));

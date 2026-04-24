@@ -21,7 +21,7 @@ public class Puddle extends Ground {
     public ActionList allowableActions(Actor actor, Location location, String direction)
     {
         ActionList actions = new ActionList();
-        if (direction.equals(" "))
+        if (direction.isEmpty())
         {
             actions.add(new DrinkAction());
         }

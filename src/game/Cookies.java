@@ -49,4 +49,9 @@ public class Cookies extends Item implements Consumable
     {
         return actor + " consumes Cookies (" +this.totalUsable + " uses left)";
     }
+
+    public boolean isFullyConsumed()
+    {
+        return totalUsable == 0;
+    }
 }
