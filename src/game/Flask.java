@@ -39,7 +39,7 @@ public class Flask extends Item implements Consumable
 
     public String menuDescription(Actor actor)
     {
-        return actor + " drinks from the Flash (" +this.totalUsable + " uses left)";
+        return actor + " drinks from the Flask (" +this.totalUsable + " uses left)";
     }
 
     public boolean isFullyConsumed()

@@ -27,6 +27,10 @@ public class UnlockDoorAction extends Action {
             Ground surroundingGround = surroundingLocation.getGround();
             if (surroundingGround.getDisplayChar() == '=') {
                 Door door = (Door) surroundingGround;
+                if (door.alarmLocked)
+                {
+                    return "The " + door + " at " + surroundingLocation + " is sealed by the facility's alarm.";
+                }
                 door.isUnlocked = true;
                 return actor + " unlocked " + door + " at " + surroundingLocation;
             }

@@ -1,7 +1,6 @@
 package game;
 
 import edu.monash.fit2099.engine.displays.Display;
-import edu.monash.fit2099.engine.items.Inventory;
 import edu.monash.fit2099.engine.positions.DefaultGroundCreator;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.World;
@@ -23,16 +22,19 @@ public class EclipseNebula extends World {
      * @throws Exception in case if anything goes wrong...
      */
     public void initialise() throws Exception {
+        AlarmSystem alarmSystem = new AlarmSystem();
         DefaultGroundCreator groundCreator = new DefaultGroundCreator();
         groundCreator.registerGround('.', Dirt::new);
         groundCreator.registerGround('#', Wall::new);
         groundCreator.registerGround('~', Puddle::new);
         groundCreator.registerGround('_', Floor::new);
-        groundCreator.registerGround('=', Door::new);
+        groundCreator.registerGround('=', () -> new Door(alarmSystem));
+        groundCreator.registerGround('✩', () -> new PressurePlate(alarmSystem));
+        groundCreator.registerGround('o', () -> new Hole(alarmSystem));
 
         List<String> moon99Deprecated = Arrays.asList(
                 "....................########################################",
-                "...#######..........#__________________#___________________#",
+                "...#######...✩......#__________________#___________________#",
                 "...#_____#..........=__________________=___________________#",
                 "...#_____=...~......#__________________#___________________#",
                 "...#_____#..~~~.....########=#####=#####___#############___#",
@@ -41,13 +43,13 @@ public class EclipseNebula extends World {
                 "....................#______=_#_________#___________________#",
                 "......~.............#______#_#_________#___________________#",
                 ".....~~~............#______#_###########___#############___#",
-                ".....~..............#______#___________#___#___________#___#",
+                ".....~.........o....#______#___________#___#___________#___#",
                 "....................=______#___________=___=___________=___#",
                 "....................#______#############___#############___#",
                 ".........~~~~.......#______#___________#####################",
                 "........~~~~~~......#______#___________=___________________#",
                 ".........~~~~.......#______#___________#___________________#",
-                "....................#______#############___#############___#",
+                "....o...............#______#############___#############___#",
                 "....................#______#___________#___#___________#___#",
                 "..~.................#______=___________=___=___________=___#",
                 "....................########################################"
@@ -63,14 +65,14 @@ public class EclipseNebula extends World {
 
         // BEHOLD, LOCAL MULTIPLAYER!!!
         ContractedWorker contractedWorker1 = new ContractedWorker("#1 Bob", 'ඞ', 10);
-        ContractedWorker contractedWorker2 = new ContractedWorker("#2 Tom", 'ඞ', 10);
-        ContractedWorker contractedWorker3 = new ContractedWorker("#3 Sarah", 'ඞ', 10);
-        ContractedWorker contractedWorker4 = new ContractedWorker("#4 Julie", 'ඞ', 10);
-        ContractedWorker contractedWorker5 = new ContractedWorker("#5 Rick", 'ඞ', 10);
+//        ContractedWorker contractedWorker2 = new ContractedWorker("#2 Tom", 'ඞ', 10);
+//        ContractedWorker contractedWorker3 = new ContractedWorker("#3 Sarah", 'ඞ', 10);
+//        ContractedWorker contractedWorker4 = new ContractedWorker("#4 Julie", 'ඞ', 10);
+//        ContractedWorker contractedWorker5 = new ContractedWorker("#5 Rick", 'ඞ', 10);
         this.addPlayer(contractedWorker1, moon99DeprecatedMap.at(6, 2));
-        this.addPlayer(contractedWorker2, moon99DeprecatedMap.at(7, 2));
-        this.addPlayer(contractedWorker3, moon99DeprecatedMap.at(8, 2));
-        this.addPlayer(contractedWorker4, moon99DeprecatedMap.at(6, 4));
-        this.addPlayer(contractedWorker5, moon99DeprecatedMap.at(8, 4));
+//        this.addPlayer(contractedWorker2, moon99DeprecatedMap.at(7, 2));
+//        this.addPlayer(contractedWorker3, moon99DeprecatedMap.at(8, 2));
+//        this.addPlayer(contractedWorker4, moon99DeprecatedMap.at(6, 4));
+//        this.addPlayer(contractedWorker5, moon99DeprecatedMap.at(8, 4));
     }
 }

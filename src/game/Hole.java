@@ -11,9 +11,11 @@ public class Hole extends Ground
     private static final int SPAWN_INTERVAL = 20;
     private int turnCount = 0;
     private final Random random = new Random();
+    private final AlarmStatus alarmStatus;
 
-    public Hole() {
+    public Hole(AlarmStatus alarmStatus) {
         super('o', "Hole");
+        this.alarmStatus = alarmStatus;
     }
 
     @Override
@@ -22,7 +24,7 @@ public class Hole extends Ground
         turnCount++;
         if (turnCount % SPAWN_INTERVAL == 0 && !location.containsAnActor())
         {
-            Actor creature = random.nextBoolean() ? new Undead() : new Slime();
+            Actor creature = random.nextBoolean() ? new Undead(alarmStatus) : new Slime();
             try
             {
                 location.addActor(creature);

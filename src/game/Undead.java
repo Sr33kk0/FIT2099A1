@@ -15,12 +15,13 @@ public class Undead extends Actor
 {
     private final Map<Integer, Behaviour<Actor, Action>> behaviours = new TreeMap<>();
 
-    public Undead()
+    public Undead(AlarmStatus alarmStatus)
     {
         super("Undead", 'Ѫ', 15, new BasicInventory());
         setIntrinsicWeapon(new BareFist());
         behaviours.put(1, new AttackBehaviour());
-        behaviours.put(2, new WanderBehaviour());
+        behaviours.put(2, new HuntBehaviour(alarmStatus));
+        behaviours.put(3, new WanderBehaviour());
     }
 
     @Override

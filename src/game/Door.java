@@ -8,11 +8,14 @@ import edu.monash.fit2099.engine.positions.Ground;
  * {@code ContractedWorker}s until they can produce the correct rectangular
  * piece of plastic.
  */
-public class Door extends Ground {
+public class Door extends Ground implements AlarmAffected{
     boolean isUnlocked = false;
+    boolean alarmLocked = false;
 
-    public Door() {
+    public Door(AlarmSystem alarmSystem)
+    {
         super('=', "Door");
+        alarmSystem.register(this);
     }
 
     /**
@@ -22,6 +25,15 @@ public class Door extends Ground {
      */
     @Override
     public boolean canActorEnter(Actor actor) {
-        return isUnlocked;
+        return isUnlocked && !alarmLocked;
+    }
+
+    public void onAlarmStart()
+    {
+        this.alarmLocked = true;
+    }
+    public void onAlarmEnd()
+    {
+        this.alarmLocked = false;
     }
 }
